@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            
+            <solid
+                android:color="#fff"/>
+        </shape>
+    </item>
+    
+    <item
+        android:drawable="@drawable/mv_logo_full"
+        android:gravity="center"
+        android:left="200dp"
+        android:top="500dp"
+        android:bottom="500dp"
+        android:right="200dp">
+    </item>
+
+</layer-list>

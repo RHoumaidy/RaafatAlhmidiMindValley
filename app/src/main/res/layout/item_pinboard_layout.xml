@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:bind="http://schemas.android.com/apk/res/android">
+    
+    <data>
+        
+        <variable
+            name="photo"
+            type="com.raafat.raafatalhmidimindvalley.models.Photo"/>
+        
+        <variable
+            name="onImageClickListner"
+            type="com.raafat.raafatalhmidimindvalley.views.callbacks.OnImageClickListner"/>
+    </data>
+    
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp">
+            
+            <com.raafat.raafatalhmidimindvalley.views.widget.CircleImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                bind:imageUrl="@{photo.user.profileImage.medium}"
+                />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@{photo.user.userName}"
+                android:textColor="#000"/>
+        
+        </LinearLayout>
+        
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:adjustViewBounds="true"
+            android:onClick='@{(view)->onImageClickListner.onClick(view,photo)}'
+            android:scaleType="centerCrop"
+            android:transitionName='@{photo.id}'
+            bind:imageUrl="@{photo.urls.regular}"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:drawablePadding="5dp"
+            android:drawableStart='@{photo.likedByUser? @drawable/ic_favorite_red_24dp: @drawable/ic_favorite_border_black_24dp}'
+            android:gravity="center_vertical"
+            android:text='@{String.valueOf(photo.likes)+" Likes"}'
+            android:textColor="#000"/>
+    </LinearLayout>
+
+</layout>

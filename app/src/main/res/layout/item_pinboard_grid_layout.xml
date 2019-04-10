@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:bind="http://schemas.android.com/apk/res/android">
+    
+    <data>
+        
+        <variable
+            name="photo"
+            type="com.raafat.raafatalhmidimindvalley.models.Photo"/>
+        
+        <variable
+            name="onImageClickListner"
+            type="com.raafat.raafatalhmidimindvalley.views.callbacks.OnImageClickListner"/>
+    </data>
+    
+    
+    <com.raafat.raafatalhmidimindvalley.views.widget.SquareImageView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:adjustViewBounds="true"
+        android:onClick='@{(view)->onImageClickListner.onClick(view,photo)}'
+        android:scaleType="centerCrop"
+        android:transitionName='@{photo.id}'
+        bind:imageUrl="@{photo.urls.regular}"/>
+
+
+</layout>
